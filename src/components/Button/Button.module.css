@@ -1,18 +1,33 @@
 .button {
-	border-radius: 6px;
-	padding: 8px 30px;
-	font-family: inherit;
-	cursor: pointer;
-	transition: background 0.25s;
-	font-size: 16px;
+	border-radius: 28px;
 	border: none;
-	width: 135px;
+	text-align: center;
+	font-family: var(--font);
+	color: var(--white-color);
 }
 
 .accent:hover {
-	background: #222096;
+	background: var(--primary-hover-color);
 }
 
 .accent {
-	background: #312EB5;
+	background: var(--primary-color);
+}
+
+.big {
+	font-weight: 600;
+	font-size: 15px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	box-shadow: 0 10px 40px 0 rgba(122, 129, 190, 0.16);
+	width: 248px;
+	height: 60px;
+}
+
+.small {
+	border-radius: 28px;
+	width: 141px;
+	height: 44px;
+	font-weight: 400;
+	font-size: 16px;
 }
