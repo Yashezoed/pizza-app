@@ -1,0 +1,65 @@
+.wrapper-layout {
+	display: flex;
+}
+
+.wrapper-menu {
+	display: flex;
+	flex-direction: column;
+	padding-left: 30px;
+	padding-top: 30px;
+	width: 210px;
+	min-height: 100vh;
+	border-right: 1px solid var(--separator-color);
+}
+
+.header-img {
+	box-shadow: 0 8px 40px 0 rgba(255, 197, 41, 0.25);
+}
+
+.fullName-text {
+	font-family: var(--font-family);
+	font-weight: 700;
+	font-size: 20px;
+	color: var(--text-color);
+	margin-top: 21px;
+}
+
+.mail-text {
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 14px;
+	color: var(--text-third-color);
+	margin-top: 3px;
+}
+
+.main-menu {
+	margin-top: 46px;
+	display: flex;
+	flex-direction: column;
+}
+
+.link-menu {
+	display: flex;
+	margin-bottom: 34px;
+}
+
+.text-menu {
+	margin-left: 17px;
+}
+
+.footer-btn {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	width: 117px !important;
+	box-shadow: 0 10px 30px 0 rgba(254, 114, 76, 0.2);
+	position: absolute;
+	bottom: 53px;
+}
+
+.exit-icon {
+	width: 26px;
+	height: 26px;
+	margin-left: 5px;
+	margin-right: 9px;
+}
