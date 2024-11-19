@@ -1,0 +1,30 @@
+.wrapper-input {
+	display: flex;
+	align-items: center;
+}
+
+.search-loop {
+	position: absolute;
+	margin: 0 15px;
+}
+
+.input {
+	width: 210px;
+	height: 49px;
+	border: none;
+	padding: 0;
+	padding-left: 44px;
+	border: 1px solid #efefef;
+	border-radius: 10px;
+	background: #fcfcfd;
+	color: #9aa0b4;
+}
+
+.input::placeholder {
+	font-size: 14px;
+	color: #9aa0b4;
+}
+
+.input:focus {
+	outline: 1px solid #c0c0c0;
+}

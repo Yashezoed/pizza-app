@@ -5,16 +5,12 @@
 .wrapper-menu {
 	display: flex;
 	flex-direction: column;
-	padding-left: 30px;
-	padding-top: 30px;
+	padding: 30px 5px 0 30px;
 	width: 210px;
 	min-height: 100vh;
 	border-right: 1px solid var(--separator-color);
 }
 
-.header-img {
-	box-shadow: 0 8px 40px 0 rgba(255, 197, 41, 0.25);
-}
 
 .fullName-text {
 	font-family: var(--font-family);
@@ -43,6 +39,14 @@
 	margin-bottom: 34px;
 }
 
+.link-menu:hover {
+	color: var(--primary-color);
+}
+
+.active {
+	color: var(--primary-color);
+}
+
 .text-menu {
 	margin-left: 17px;
 }
@@ -62,4 +66,9 @@
 	height: 26px;
 	margin-left: 5px;
 	margin-right: 9px;
+}
+
+.content {
+	margin: 39px 60px 0 60px;
+	width: 100%;
 }

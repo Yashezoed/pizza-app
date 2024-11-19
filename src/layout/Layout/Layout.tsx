@@ -1,8 +1,11 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import styles from './Layout.module.css';
 import Button from '../../components/Button/Button';
+import cn from 'classnames';
 
 export function Layout() {
+
+
 	return (
 		<div className={styles['wrapper-layout']}>
 			<div className={styles['wrapper-menu']}>
@@ -16,29 +19,42 @@ export function Layout() {
 					<p className={styles['mail-text']}>mr.efyx@mail.ru</p>
 				</div>
 				<div className={styles['main-menu']}>
-					<Link to='/' className={styles['link-menu']}>
+					<NavLink
+						to='/'
+						className={({ isActive }) =>
+							cn(styles['link-menu'], {
+								[styles.active]: isActive
+							})
+						}
+					>
 						<img src='menu-icon.svg' alt='иконка меню' />
 						<p className={styles['text-menu']}>Меню</p>
-					</Link>
-					<Link to='/cart' className={styles['link-menu']}>
+					</NavLink>
+					<NavLink
+						to='/cart'
+						className={({ isActive }) =>
+							cn(styles['link-menu'], {
+								[styles.active]: isActive
+							})
+						}
+					>
 						<img src='cart-icon.svg' alt='иконка корзины' />
 						<p className={styles['text-menu']}>Корзина</p>
-					</Link>
+					</NavLink>
 				</div>
-				
-				<Button
-					appearence={'small'}
-					className={styles['footer-btn']}
-				>
+
+				<Button appearence={'small'} className={styles['footer-btn']}>
 					<img
 						src='/Exit.png'
 						alt='иконка выхода'
 						className={styles['exit-icon']}
 					/>
-						Выйти
+					Выйти
 				</Button>
 			</div>
-			<Outlet />
+			<div className={styles['content']}>
+				<Outlet />
+			</div>
 		</div>
 	);
 }
