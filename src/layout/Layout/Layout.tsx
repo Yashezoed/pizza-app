@@ -27,7 +27,7 @@ export function Layout() {
 							})
 						}
 					>
-						<img src='menu-icon.svg' alt='иконка меню' />
+						<img src='/menu-icon.svg' alt='иконка меню' />
 						<p className={styles['text-menu']}>Меню</p>
 					</NavLink>
 					<NavLink
@@ -38,7 +38,7 @@ export function Layout() {
 							})
 						}
 					>
-						<img src='cart-icon.svg' alt='иконка корзины' />
+						<img src='/cart-icon.svg' alt='иконка корзины' />
 						<p className={styles['text-menu']}>Корзина</p>
 					</NavLink>
 				</div>
