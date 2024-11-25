@@ -8,6 +8,9 @@ import { Layout } from './layout/Layout/Layout.tsx';
 import { Product } from './pages/Product/Product.tsx';
 import axios from 'axios';
 import { PREFIX } from './helpers/api.ts';
+import { AuthLayuout } from './layout/Auth/AuthLayuout.tsx';
+import { Login } from './pages/Login/Login.tsx';
+import { Register } from './pages/Register/Register.tsx';
 
 const Menu = lazy(() => import('./pages/Menu//Menu.tsx'));
 
@@ -21,7 +24,7 @@ const router = createBrowserRouter(
 					path: '/',
 					element: (
 						<Suspense fallback={<>Загрузка...</>}>
-							<Menu/>
+							<Menu />
 						</Suspense>
 					)
 				},
@@ -34,11 +37,6 @@ const router = createBrowserRouter(
 					element: <Product />,
 					errorElement: <>Ошибка</>,
 					loader: async ({ params }) => {
-						await new Promise<void>((resolve) => {
-							setTimeout(() => {
-								resolve();
-							}, 2000);
-						});
 						const { data } = await axios.get(
 							`${PREFIX}/products/${params.id}`
 						);
@@ -54,6 +52,20 @@ const router = createBrowserRouter(
 		{
 			path: '*',
 			element: <ErrorPage />
+		},
+		{
+			path: '/auth',
+			element: <AuthLayuout />,
+			children: [
+				{
+					path: 'login',
+					element: <Login />
+				},
+				{
+					path: 'register',
+					element: <Register />
+				}
+			]
 		}
 	],
 	{
