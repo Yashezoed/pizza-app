@@ -24,7 +24,7 @@ function ProductCard(props: ProductCardProps) {
 					</button>
 				</div>
 				<div className={styles['footer']}>
-					<p className={styles['title']}>{props.title}</p>
+					<p className={styles['title']}>{props.name}</p>
 					<p className={styles['description']}>{props.description}</p>
 				</div>
 			</div>
