@@ -13,7 +13,7 @@ export function MenuList({ products }: MenuListProps) {
 			rating={p.rating}
 			image={p.image}
 		/>
-	))};
+	))}
 	</div>;
 }
 

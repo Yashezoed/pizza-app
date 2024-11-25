@@ -23,11 +23,11 @@ export function Menu() {
 				setError(e.message);
 			}
 			return;
-		} finally { 
+		} finally {
 			setIsLoading(false);
-			
+
 		}
-		// через встроенный в js fetch 
+		// через встроенный в js fetch
 		/* try {
 			const res = await fetch(`${PREFIX}/products`);
 			if (!res.ok) {

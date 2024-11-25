@@ -21,7 +21,7 @@ const router = createBrowserRouter(
 					path: '/',
 					element: (
 						<Suspense fallback={<>Загрузка...</>}>
-							<Menu />
+							<Menu/>
 						</Suspense>
 					)
 				},
