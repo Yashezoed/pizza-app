@@ -28,3 +28,10 @@
 	cursor: pointer;
 	width: min-content;
 }
+
+.error {
+	background: rgba(196, 1, 1, 0.866);
+	color: white;
+	padding: 20px;
+	border-radius: 181px;
+}
