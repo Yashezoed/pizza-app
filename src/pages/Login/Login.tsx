@@ -7,6 +7,9 @@ import { FormEvent, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { PREFIX } from '../../helpers/api';
 import { LoginResponse } from '../../interfaces/auth.interface';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store/store';
+import { userAction } from '../../store/user.slice';
 
 export type LoginForm = {
 	email: {
@@ -21,6 +24,7 @@ export function Login() {
 
 	const [error, setError] = useState<string | null>();
 	const navigate = useNavigate();
+	const dispatch = useDispatch<AppDispatch>();
 
 	const sumbit = async (e: FormEvent) => {
 		e.preventDefault();
@@ -36,8 +40,7 @@ export function Login() {
 				email,
 				password
 			});
-			console.log(data.access_token);
-			localStorage.setItem('jwt', data.access_token);
+			dispatch(userAction.addJwt(data.access_token));
 			navigate('/');
 		}
 		catch(e) {
