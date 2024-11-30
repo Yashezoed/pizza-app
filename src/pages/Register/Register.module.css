@@ -1,0 +1,37 @@
+.register {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.register-btn {
+	margin-top: 30px;
+}
+
+.btn {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	font-weight: 600;
+	font-size: 14px;
+	color: var(--text-secondary-color);
+	align-items: center;
+}
+
+.register-text {
+	color: var(--primary-color);
+	cursor: pointer;
+	width: min-content;
+}
+
+.error {
+	background: rgba(196, 1, 1, 0.866);
+	color: white;
+	padding: 20px;
+	border-radius: 181px;
+}

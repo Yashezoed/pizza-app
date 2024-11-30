@@ -7,7 +7,7 @@ const Input = forwardRef<HTMLInputElement, InputProps> (function Input({ isValid
 	const placeholder = placeholderText.charAt(0).toUpperCase() + placeholderText.slice(1);
 	return (
 		<div className={styles['wrapper']}>
-			<span className={cn(styles['text'], { [styles['invalid-span']]: !isValid }, className )}> { 'Ваш ' + placeholderText } </span>
+			<span className={cn(styles['text'], { [styles['invalid-span']]: !isValid }, className )}> {placeholderText } </span>
 			<input type='text' ref={ref} placeholder={placeholder} className={cn(styles['input'], { [styles['invalid']]: !isValid })} {...props} />
 		</div>
 	);

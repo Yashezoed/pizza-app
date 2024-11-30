@@ -24,6 +24,7 @@
 	padding: 20px;
 }
 
+
 .input::placeholder {
 	color: var(--text-third-color);
 }
