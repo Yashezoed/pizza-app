@@ -23,8 +23,6 @@ export function Layout() {
 		dispatch(userData());
 	}, [dispatch]);
 
-
-
 	return (
 		<div className={styles['wrapper-layout']}>
 			<div className={styles['wrapper-menu']}>
@@ -59,7 +57,9 @@ export function Layout() {
 					>
 						<img src='/cart-icon.svg' alt='иконка корзины' />
 						<p className={styles['text-menu']}>Корзина</p>
-						{items.reduce((acc, item) => acc += item.count , 0)}
+						<span className={styles['cart-counter']}>
+							{items.reduce((acc, item) => (acc += item.count),0)}
+						</span>
 					</NavLink>
 				</div>
 

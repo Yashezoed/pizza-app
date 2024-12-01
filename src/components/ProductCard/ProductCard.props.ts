@@ -1,7 +1,3 @@
-
-
-// type Image = React.ImgHTMLAttributes<HTMLImageElement>;
-
 export interface ProductCardProps{
 	id: number;
 	name: string;

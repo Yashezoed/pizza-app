@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import Headling from '../../components/Headling/Headling';
 import Search from '../../components/Search/Search';
 import { PREFIX } from '../../helpers/api';
@@ -11,7 +11,12 @@ export function Menu() {
 	const [products, setProducts] = useState<Product[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | undefined>();
-
+	const [searchError, setSearchError] = useState<boolean>(false);
+	
+	useEffect(() => {
+		getMenu();
+	}, []);
+	
 	const getMenu = async () => {
 		try {
 			setIsLoading(true);
@@ -25,7 +30,6 @@ export function Menu() {
 			return;
 		} finally {
 			setIsLoading(false);
-
 		}
 		// через встроенный в js fetch
 		/* try {
@@ -41,20 +45,32 @@ export function Menu() {
 		} */
 	};
 
-	useEffect(() => {
-		getMenu();
-	}, []);
+	const sortByName = async (e: ChangeEvent<HTMLInputElement>) => {
+		if (e.target) {
+			setSearchError(false);
+			const { data } = await axios.get<Product[]>(`${PREFIX}/products`, {
+				params: {
+					name: e.target.value
+				}
+			});
+			setProducts(data);
+			if (!data.length) {
+				setSearchError(true);
+			}
+		}
+	};
 
 	return (
 		<>
 			<div className={styles['header']}>
 				<Headling>Меню</Headling>
-				<Search />
+				<Search onChange={sortByName} />
 			</div>
 			<div>
-				{!isLoading && <MenuList products={products}/>}
+				{!isLoading && <MenuList products={products} />}
 				{error && <>{error}</>}
 				{isLoading && <>Загружаем продукт</>}
+				{searchError && <>По вашему запросу ничего не найдено</>}
 			</div>
 		</>
 	);
