@@ -21,6 +21,10 @@ export function Cart() {
 	const navigate = useNavigate();
 	
 	useEffect(() => {
+		const loadAllItems = async () => {
+			const res = await Promise.all(items.map((i) => getItem(i.id)));
+			setCartProducts(res);
+		};
 		loadAllItems();
 	}, [items]);
 	
@@ -37,10 +41,7 @@ export function Cart() {
 		return data;
 	};
 
-	const loadAllItems = async () => {
-		const res = await Promise.all(items.map((i) => getItem(i.id)));
-		setCartProducts(res);
-	};
+	
 
 	const checkout = async () => {
 		await axios.post(`${PREFIX}/order`, {
@@ -57,12 +58,13 @@ export function Cart() {
 	return (
 		<>
 			<Headling className={styles['headling']}>Корзина</Headling>
+			{items.length === 0 && <p className={styles['empty-cart']}>В корзине пока ничего нет</p>}
 			{items.map((i) => {
 				const product = cartProducts.find((p) => p.id === i.id);
-				if (!product) return;
+				if (!product) return ;
 				return <CartItem key={i.id} count={i.count} {...product} />;
 			})}
-			<div className={styles['promo']}>
+			{items.length !== 0 && <><div className={styles['promo']}>
 				<input
 					type='text'
 					placeholder='Промокод'
@@ -102,7 +104,7 @@ export function Cart() {
 			</div>
 			<div className={styles['checkout']} onClick={checkout}>
 				<Button appearence='big'>Оформить</Button>
-			</div>
+			</div></>}
 		</>
 	);
 }
